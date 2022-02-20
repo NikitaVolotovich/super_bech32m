@@ -1,0 +1,7 @@
+dist: trusty
+language: java
+jdk:
+  - openjdk11
+
+notifications:
+  email: 516537@mail.muni.cz
