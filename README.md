@@ -3,11 +3,11 @@
 # Phase 1 *deadline 21.2 16:00
 * **Team:** Mikita Valatovich; Kamil Fňukal; Miroslav Šerý.
 * **Language:** Kotlin.
-* ✔ Put test vectors into empty
+* ✔ Put test vectors into empty project
 * ✔ Write message to Antonin Dufka
 # Phase 2 *deadline 14.3 16:00
 * ▢ Configure GitHub A
-* ▢ Signing our commits (https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits)
+* ✔▢▢ Signing our commits (https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits)
 * ▢ Encoding test vectors functionality
 * ▢ Decoding test vectors functionality
 * ▢ 3-4 pages of report
