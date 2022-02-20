@@ -6,7 +6,7 @@
 * ✔ Put test vectors into empty project
 * ✔ Write message to Antonin Dufka
 # Phase 2 *deadline 14.3 16:00
-* ▢ Configure GitHub A
+* ▢ Configure GitHub automated tests
 * ✔▢▢ Signing our commits (https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits)
 * ▢ Encoding test vectors functionality
 * ▢ Decoding test vectors functionality
