@@ -7,7 +7,7 @@
 * ✔ Write message to Antonin Dufka
 # Phase 2 *deadline 14.3 16:00
 * ▢ Configure GitHub automated tests
-* ✔▢▢ Signing our commits (https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits)
+* ✔✔▢ Signing our commits (https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits)
 * ▢ Encoding test vectors functionality
 * ▢ Decoding test vectors functionality
 * ▢ 3-4 pages of report
