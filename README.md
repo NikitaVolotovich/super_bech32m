@@ -1,7 +1,7 @@
 # PA193 Secure coding principles and practices
 # Project: super_bech32m
 # Phase 1 *deadline 21.2 16:00
-* **Team:** Mikita Valatovich; Kamil Fňukal; Miroslav Šerý.
+* **Team:** Mikita Valatovich; .
 * **Language:** Kotlin.
 * ✔ Put test vectors into empty project
 * ✔ Write message to Antonin Dufka

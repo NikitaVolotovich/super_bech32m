@@ -1,7 +1,6 @@
-package test
-
 import Encode
 import org.junit.jupiter.api.Test
+
 
 internal object EncodeTest {
 

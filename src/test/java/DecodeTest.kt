@@ -1,5 +1,3 @@
-package test
-
 import Decode
 import org.junit.jupiter.api.Test
 

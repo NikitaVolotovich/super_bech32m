@@ -1,5 +1,5 @@
 # Phase 1 *deadline 21.2 16:00
-* **Team:** Mikita Valatovich; Kamil Fňukal; Miroslav Šerý.
+* **Team:** Mikita Valatovich; Illia Kostenko.
 * **Language:** Kotlin.
 * ✔ Put test vectors into empty 
 * ✔ Write message to Antonin Dufka
