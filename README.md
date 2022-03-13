@@ -1,4 +1,5 @@
 # PA193 Secure coding principles and practices
+[![Java CI with Maven](https://github.com/NikitaVolotovich/super_bech32m/actions/workflows/maven.yml/badge.svg?branch=main)](https://github.com/NikitaVolotovich/super_bech32m/actions/workflows/maven.yml)
 # Project: super_bech32m
 # Phase 1 *deadline 21.2 16:00
 * **Team:** Mikita Valatovich; Illia Kostenko.
