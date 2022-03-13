@@ -23,17 +23,16 @@ object Decode {
             throw Exception("Input too short: " + stringToDecode.length)
         if (stringToDecode.length > 90)
             throw Exception("Input too long: " + stringToDecode.length)
-        for (i in 0 until stringToDecode.length) {
-            val character = stringToDecode[i]
-            if (character.code < 33 || character.code > 126) throw Exception ("Character is invalid")
-            if (character in 'a'..'z') {
-                if (character.isUpperCase() || upper)
-                    throw Exception ("Character is in uppercase")
+        for (element in stringToDecode) {
+            if (element.code < 33 || element.code > 126) throw Exception ("Character is invalid")
+            if (element in 'a'..'z') {
+                if (element.isUpperCase() || upper)
+                    throw Exception("Character is in uppercase")
                 lower = true
             }
-            if (character in 'A'..'Z') {
+            if (element in 'A'..'Z') {
                 if (lower)
-                    throw Exception ("Character is in lowercase")
+                    throw Exception("Character is in lowercase")
                 upper = true
             }
         }
@@ -53,7 +52,7 @@ object Decode {
                 hrp,
                 values
             )
-        ) throw Exception ("Invalid checksum");
-        return BechData(hrp, values.copyOfRange(0, values.size - 6));
+        ) throw Exception ("Invalid checksum")
+        return BechData(hrp, values.copyOfRange(0, values.size - 6))
     }
 }

@@ -25,7 +25,7 @@ object CheckSum {
     }
 
     /** Find the polynomial with value coefficients mod the generator as 30-bit.  */
-    fun polymod(values: ByteArray): Int {
+    private fun polymod(values: ByteArray): Int {
         var c = 1
         for (v_i in values) {
             val c0 = c.ushr(25) and 0xff
@@ -44,7 +44,7 @@ object CheckSum {
         val hrpLength = hrp.length
         val ret = ByteArray(hrpLength * 2 + 1)
         for (i in 0 until hrpLength) {
-            val c = hrp[i].toInt() and 0x7f // Limit to standard 7-bit ASCII
+            val c = hrp[i].code and 0x7f // Limit to standard 7-bit ASCII
             ret[i] = (c.ushr(5) and 0x07).toByte()
             ret[i + hrpLength + 1] = (c and 0x1f).toByte()
         }
