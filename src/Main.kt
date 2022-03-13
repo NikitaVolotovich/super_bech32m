@@ -6,8 +6,7 @@
 //const val testVector4 = "bc1qc7slrfxkknqcq2jevvvkdgvrt8080852dfjewde450xdlk4ugp7szw5tk9"
 const val testVector5 = "bc1pw508d6qejxtdg4y5r3zarvary0c5xw7kw508d6qejxtdg4y5r3zarvary0c5xw7k7grplx"
 
-
-fun main(){
+fun main() {
     print("PA193 course project start.\n")
 
     val decoded = Decode.decodingString(testVector5)
@@ -16,5 +15,7 @@ fun main(){
     val encoded = Encode.encode(humanReadablePart = decoded.humanReadablePart, data = decoded.data)
     print(encoded)
 }
+
+
 
 
