@@ -1,6 +1,5 @@
 object Decode {
-    /** The Bech32 character set for decoding.  */
-    private val CHARSET_REV = byteArrayOf(
+    private val CHARSET_REV = byteArrayOf( // The Bech32 character set for decoding.
         -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
         -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
         -1, -1, -1, -1, -1, -1, 15, -1, 10, 17, 21, 20, 26, 30, 7, 5, -1, -1, -1, -1, -1,
@@ -8,13 +7,6 @@ object Decode {
         28, 12, 14, 6, 4, 2, -1, -1, -1, -1, -1, -1, 29, -1, 24, 13, 25, 9, 8, 23, -1, 18,
         22, 31, 27, 19, -1, 1, 0, 3, 16, 11, 28, 12, 14, 6, 4, 2, -1, -1, -1, -1, -1
     )
-
-    fun isZero(a: Int, b: Int): Boolean {
-        if(a+b == 0 || a-b == 0|| a*b == 0){
-            return true
-        }
-        return false
-    }
 
     fun decodingString(stringToDecode: String): BechData {
         var lower = false
@@ -43,16 +35,11 @@ object Decode {
         val values = ByteArray(dataPartLength)
         for (i in 0 until dataPartLength) {
             val c = stringToDecode[i + position + 1]
-            if (CHARSET_REV[c.code].toInt() == -1) throw Exception( "Invalid character"
-            )
+            if (CHARSET_REV[c.code].toInt() == -1) throw Exception( "Invalid character")
             values[i] = CHARSET_REV[c.code]
         }
-        val hrp = stringToDecode.substring(0, position).lowercase()
-        if (!CheckSum.verifyChecksum(
-                hrp,
-                values
-            )
-        ) throw Exception ("Invalid checksum")
-        return BechData(hrp, values.copyOfRange(0, values.size - 6))
+        val humanReadablePart = stringToDecode.substring(0, position).lowercase()
+        if (!CheckSum.checkChecksum(humanReadablePart, values)) throw Exception ("Invalid checksum")
+        return BechData(humanReadablePart, values.copyOfRange(0, values.size - 6))
     }
 }
