@@ -35,3 +35,7 @@ jobs:
           sudo snap install --classic kotlin,
           kotlinc src/Main.kt -include-runtime -d main.jar,
           java -jar main.jar.
+          
+      # Runs a single command using the runners shell
+      - name: End
+        run: echo Finish testing!
