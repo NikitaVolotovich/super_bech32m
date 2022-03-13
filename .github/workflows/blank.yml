@@ -30,11 +30,9 @@ jobs:
         run: echo Start testing!
 
       # Runs a set of commands using the runners shell
-      # - name: Run a multi-line script
-      #  run: |
-      #    sudo snap install --classic kotlin,
-      #    kotlinc src/Main.kt -include-runtime -d main.jar,
-      #   java -jar main.jar.
+      - name: Maven script
+        run: sudo snap install --classic mvn,
+          mvn install.
           
       # Runs a single command using the runners shell
       - name: End
