@@ -1,5 +1,7 @@
 # Idea files
 /.idea/
+/out/
+.DS_Store
 
 # Maven files
 /target/*
