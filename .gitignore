@@ -1,3 +1,10 @@
+# Idea files
+/.idea/
+
+# Maven files
+/target/*
+!/target/super_bech32m-1.0-SNAPSHOT-jar-with-dependencies.jar
+
 # Compiled class file
 *.class
 

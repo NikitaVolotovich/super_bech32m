@@ -2,7 +2,7 @@
 [![Java CI with Maven](https://github.com/NikitaVolotovich/super_bech32m/actions/workflows/maven.yml/badge.svg?branch=main)](https://github.com/NikitaVolotovich/super_bech32m/actions/workflows/maven.yml)
 # Project: super_bech32m
 # Phase 1 *deadline 21.2 16:00
-* **Team:** Mikita Valatovich; Illia Kostenko.
+* **Team:** Mikita Valatovich; Illia Kostenko, Kamil Fňukal.
 * **Language:** Kotlin.
 * ✔ Put test vectors into empty project
 * ✔ Write message to Antonin Dufka
@@ -13,10 +13,14 @@
 * ✔ Decoding test vectors functionality
 * ✔ 3-4 pages of report
 # Phase 3 *deadline 11.4 16:00
-* ▢ Finalise the implementation
-* ▢ Try to identify any vulnerabilities with analysis tools
-* ▢ Release the final binary build with a digital signature (GPG)
-* ▢ Presentation
+* ▢ Finalise the implementation 
+* ▢ [Mikita]: User interface in command line
+* ▢ [Name]: Fix bech32m encryption method
+* ▢ [Name]: Prepare fuzzer for program
+* ▢ [Name]: Run dynamic analyzer
+* ▢ [Name]: Run static analyzer's
+* ▢ [Name]: Release the final binary build with a digital signature (GPG)
+* ▢ [Name]: Presentation
 # Phase 4 *deadline 9.5 16:00
 * ▢ Another team review
 
