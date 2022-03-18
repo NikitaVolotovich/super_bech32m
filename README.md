@@ -16,9 +16,9 @@
 * ▢ Finalise the implementation 
 * ▢ [Mikita]: User interface in command line
 * ▢ [Name]: Fix bech32m encryption method
-* ▢ [Name]: Prepare fuzzer for program
-* ▢ [Name]: Run dynamic analyzer
-* ▢ [Name]: Run static analyzer's
+* ▢ [Kamil]: Prepare fuzzer for program
+* ▢ [Kamil]: Run dynamic analyzer
+* ▢ [Kamil]: Run static analyzer's
 * ▢ [Name]: Release the final binary build with a digital signature (GPG)
 * ▢ [Name]: Presentation
 # Phase 4 *deadline 9.5 16:00
