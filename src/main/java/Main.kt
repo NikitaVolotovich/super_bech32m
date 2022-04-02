@@ -1,6 +1,6 @@
 const val testVector5 = "bc1pw508d6qejxtdg4y5r3zarvary0c5xw7kw508d6qejxtdg4y5r3zarvary0c5xw7k7grplx"
 
-fun main(args: Array<String>) {
+fun main(args: Array<String?>) {
     println(args.get(0))
     println("PA193 course project start.")
     println("Input: $testVector5")
@@ -8,6 +8,8 @@ fun main(args: Array<String>) {
     println(decoded)
     val encoded = Encode.encode(humanReadablePart = decoded.humanReadablePart, data = decoded.data)
     println(encoded)
+
+    InputProcess.inputArgumentsExecutor(args)
 
 }
 
