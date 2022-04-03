@@ -18,8 +18,10 @@ object BechTools {
     const val BINARY_FORMAT = 4
 
     fun convertToBechData(inputStr: String, inputFormat: Int): BechData{
-        /*
-
+        /* Expected inputStr:
+            dec: bc[1, 31, 20, 15, 7, 13])
+            hex: bc[01,0e,14,0f,07,0d]
+            bin: bc[00001,11111,10100,01111,00111,01101]
          */
         when (inputFormat) {
             DEC_FORMAT -> {
