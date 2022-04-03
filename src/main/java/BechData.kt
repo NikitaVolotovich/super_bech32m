@@ -5,13 +5,24 @@ data class BechData (
     val data: ByteArray
 ) {
     override fun toString(): String {
-        return "BechData(humanReadablePart='$humanReadablePart', data=${data.contentToString()})"
+        return "$humanReadablePart${data.contentToString()})"
     }
 }
 
+
+
 object BechTools {
+    const val DEC_FORMAT = 1
+    const val BASE64_FORMAT = 2
+    const val HEX_FORMAT = 3
+    const val BINARY_FORMAT = 4
+
+    fun convertToBechData(inputStr: String, inputFormat: Int){
+
+    }
+
     fun parseDecStringToBechData(inputStr: String): BechData{
-        return BechData("bc", byteArrayOf(1, 14, 20, 15, 7, 13, 26, 0, 25, 18, 6, 11, 13, 8, 21, 4, 20, 3, 17, 2, 29, 3, 12, 29, 3, 4, 15, 24, 20, 6, 14, 30, 22, 14, 20, 15, 7, 13, 26))
+        return BechData("bc", byteArrayOf(1, 14, 20, 15, 7, 13, 26, 0))
     }
 
     fun parseBechDataToHex(inputBech: BechData): String{
@@ -22,9 +33,9 @@ object BechTools {
         return inputBech.humanReadablePart + "[" + inputBech.data.toBinary() + "]"
     }
 
-    private fun ByteArray.toHex(): String = joinToString(separator = ",") { eachByte -> "0x%02x".format(eachByte) }
+    private fun ByteArray.toHex(): String = joinToString(separator = ",") { eachByte -> "%02x".format(eachByte) }
 
-    private fun ByteArray.toBinary(): String = joinToString(separator = ",") { eachByte -> Integer.toBinaryString(eachByte.toInt())}
+    private fun ByteArray.toBinary(): String = joinToString(separator = ",") { eachByte -> "%5s".format(Integer.toBinaryString(eachByte.toInt())).replace(' ', '0')}
 
     fun String.parseHexStringToByteArray() :   ByteArray{
         return BigInteger(this, 16).toByteArray()

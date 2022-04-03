@@ -1,4 +1,9 @@
 object InputProcess {
+    const val DEC_FORMAT = 1
+    const val BASE64_FORMAT = 2
+    const val HEX_FORMAT = 3
+    const val BINARY_FORMAT = 4
+
     private var isToEncrypt: Boolean = false
     private var isToDecrypt: Boolean = false
 //    private var isPrintIntoFile: Boolean = false
@@ -10,6 +15,10 @@ object InputProcess {
     private var inputFilePath: String = ""
     private var outputFilePath: String = ""
 
+    private var inputEncodeType: Int = DEC_FORMAT
+    private var inputDecodeType: Int = BASE64_FORMAT
+    private var outputEncodeType: Int = BASE64_FORMAT
+    private var outputDecodeType: Int = DEC_FORMAT
 
 
     fun inputArgumentsExecutor(args: Array<String>) { // Mikita
@@ -39,25 +48,25 @@ object InputProcess {
         args.forEachIndexed { _, value ->
             when (value) {
                 "-e"-> {
-                    encryptionInspector(args)
+                    encodingInspector(args)
                     return@forEachIndexed
                 }
                 "-d" -> {
-                    decryptionInspector(args)
+                    decodingInspector(args)
                     return@forEachIndexed
                 }
             }
         }
     }
 
-    private fun encryptionInspector(args: Array<String>) {
+    private fun encodingInspector(args: Array<String>) {
         isToEncrypt = true
         args.forEachIndexed { index, value ->
             when (value) {
                 "-e" -> {
                     if(index + 1 < args.size && args[index+1] != "-f") {
                         inputString = args[index + 1]
-                        println("String for encryption: $inputString")
+                        println("String for encoding: $inputString")
                     } else {
                         isInputCorrect = false
                     }
@@ -65,7 +74,7 @@ object InputProcess {
                 "-f" -> {
                     if(index + 1 < args.size) {
                         inputFilePath = args[index + 1]
-                        println("Input filepath for encryption: $inputFilePath")
+                        println("Input filepath for encoding: $inputFilePath")
                     } else {
                         isInputCorrect = false
                     }
@@ -73,7 +82,7 @@ object InputProcess {
                 "-o" -> {
                     if(index + 1 < args.size) {
                         outputFilePath = args[index + 1]
-                        println("Output filepath for encryption: $outputFilePath")
+                        println("Output filepath for encoding: $outputFilePath")
                     } else {
                         println("Input is incorrect. Filepath for output file was not found.")
                         isInputCorrect = false
@@ -83,26 +92,26 @@ object InputProcess {
         }
     }
 
-    private fun decryptionInspector(args: Array<String>) {
+    private fun decodingInspector(args: Array<String>) {
         isToDecrypt = true
         args.forEachIndexed { index, value ->
             when (value) {
                 "-d" -> {
                     if(index + 1 < args.size && args[index+1] != "-f") {
                         inputString = args[index + 1]
-                        println("String for decryption: $inputString")
+                        println("String for decoding: $inputString")
                     }
                 }
                 "-f" -> {
                     if(index + 1 < args.size) {
                         inputFilePath = args[index + 1]
-                        println("Input filepath for decryption: $inputFilePath")
+                        println("Input filepath for decoding: $inputFilePath")
                     }
                 }
                 "-o" -> {
                     if(index + 1 < args.size) {
                         outputFilePath = args[index + 1]
-                        println("Output filepath for decryption: $outputFilePath")
+                        println("Output filepath for decoding: $outputFilePath")
                     }
                 }
             }
