@@ -1,3 +1,5 @@
+import java.math.BigInteger
+
 data class BechData (
     val humanReadablePart: String,
     val data: ByteArray
@@ -24,5 +26,35 @@ object BechTools {
 
     private fun ByteArray.toBinary(): String = joinToString(separator = ",") { eachByte -> Integer.toBinaryString(eachByte.toInt())}
 
+    fun String.parseHexStringToByteArray() :   ByteArray{
+        return BigInteger(this, 16).toByteArray()
+    }
 
+    fun String.parseBinStringToByteArray() : ByteArray{
+        return BigInteger(this, 2).toByteArray()
+    }
+
+    fun String.parseB64StringToHexString() : String{
+        return BigInteger(this, 64).toString(16)
+    }
+
+    fun String.parseB64StringToBinString() : String{
+        return BigInteger(this, 64).toString(2)
+    }
+
+    fun String.parseHexStringToB64String(): String{
+        return BigInteger(this, 16).toString(64)
+    }
+
+    fun String.parseHexStringToBinaryString(): String{
+        return BigInteger(this, 16).toString(2)
+    }
+
+    fun String.parseBinaryStringToB64String(): String{
+        return BigInteger(this, 2).toString(64)
+    }
+
+    fun String.parseBinaryStringToHexString(): String{
+        return BigInteger(this, 2).toString(16)
+    }
 }
