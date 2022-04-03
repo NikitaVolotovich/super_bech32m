@@ -17,8 +17,28 @@ object BechTools {
     const val HEX_FORMAT = 3
     const val BINARY_FORMAT = 4
 
-    fun convertToBechData(inputStr: String, inputFormat: Int){
+    fun convertToBechData(inputStr: String, inputFormat: Int): BechData{
+        /*
 
+         */
+        when (inputFormat) {
+            DEC_FORMAT -> {
+                // parse input str to humanReadablePart and array as data
+                var humanReadablePart = ""
+                var array = byteArrayOf(10, 20, 31, 1, 2, 0)
+                return(BechData(humanReadablePart, array))
+            }
+            HEX_FORMAT -> {
+
+                return(BechData("ex", byteArrayOf(1,2,3)))
+            }
+            BINARY_FORMAT -> {
+                //convert binary data to dec and do the same like in dec format
+                return(BechData("ex", byteArrayOf(1,2,3)))
+            }
+        }
+        Logger.write("Error in convertToBechData, 'when' block not executed")
+        return(BechData("error", byteArrayOf(1,2,3)))
     }
 
     fun parseDecStringToBechData(inputStr: String): BechData{
