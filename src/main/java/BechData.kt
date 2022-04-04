@@ -19,31 +19,35 @@ object BechTools {
 
     fun convertToBechData(inputStr: String, inputFormat: Int): BechData{
         /* Expected inputStr:
-            dec: bc[1, 31, 20, 15, 7, 13])
+            dec: bc[1, 31, 20, 15, 7, 13]
             hex: bc[01,0e,14,0f,07,0d]
             bin: bc[00001,11111,10100,01111,00111,01101]
          */
+        val array = inputStr.substringAfter('[').dropLast(1).split(',')
+        val humanReadablePart = inputStr.substringBefore('[').trim()
+
         when (inputFormat) {
             DEC_FORMAT -> {
-                // parse input str to humanReadablePart and array as data
-                var humanReadablePart = ""
-                var array = byteArrayOf(10, 20, 31, 1, 2, 0)
-                return(BechData(humanReadablePart, array))
+                return(BechData(humanReadablePart, array.map{ BigInteger(it.trim(), 10).toByte() }.toByteArray()))
             }
             HEX_FORMAT -> {
-
-                return(BechData("ex", byteArrayOf(1,2,3)))
+                return(BechData(humanReadablePart, array.map{ BigInteger(it.trim(), 16).toByte() }.toByteArray()))
             }
             BINARY_FORMAT -> {
-                //convert binary data to dec and do the same like in dec format
-                return(BechData("ex", byteArrayOf(1,2,3)))
+                return(BechData(humanReadablePart, array.map{ BigInteger(it.trim(), 2).toByte() }.toByteArray()))
+            }
+            BASE64_FORMAT -> {
+                return(BechData(humanReadablePart, array.map{ BigInteger(it.trim(), 64).toByte() }.toByteArray()))
             }
         }
+
         Logger.write("Error in convertToBechData, 'when' block not executed")
         return(BechData("error", byteArrayOf(1,2,3)))
     }
 
     fun parseDecStringToBechData(inputStr: String): BechData{
+        //TODO It might be changed to
+        //return convertToBechData(inputStr, 1)
         return BechData("bc", byteArrayOf(1, 14, 20, 15, 7, 13, 26, 0))
     }
 
