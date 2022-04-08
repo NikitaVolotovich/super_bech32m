@@ -183,10 +183,6 @@ object InputProcess {
 
         if (inputString.isEmpty())
             return false
-
-        println("inputArrayInspector true")
-        println()
-        println(inputString)
         return true
     }
 
