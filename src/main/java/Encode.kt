@@ -11,7 +11,7 @@ object Encode {
 
         humanPart = humanPart.lowercase(Locale.getDefault())
 
-        val checksum = CheckSum.getChecksum(humanPart, data)
+        val checksum = CheckSum.getChecksum_bech32m(humanPart, data)
         val combined = ByteArray(data.size + checksum.size)
         data.copyInto(combined)
         checksum.copyInto(combined, startIndex = 0, destinationOffset = data.size)

@@ -39,7 +39,7 @@ object Decode {
             values[i] = CHARSET_REV[c.code]
         }
         val humanReadablePart = stringToDecode.substring(0, position).lowercase()
-        if (!CheckSum.checkChecksum(humanReadablePart, values)) throw Exception ("Invalid checksum")
+        if (!CheckSum.checkChecksum_bech32m(humanReadablePart, values)) throw Exception ("Invalid checksum")
         return BechData(humanReadablePart, values.copyOfRange(0, values.size - 6))
     }
 }

@@ -1,3 +1,10 @@
+enum class Encoding (val code: Int){
+    BECH32(1),
+    BECH32M(2)
+}
+
+
+
 object CheckSum {
 
     private const val BECH32M_CONST = 0x2bc830a3
@@ -7,10 +14,50 @@ object CheckSum {
         val combined = ByteArray(humanPartExpanded.size + values.size)
         humanPartExpanded.copyInto(combined)
         values.copyInto(combined, destinationOffset = humanPartExpanded.size)
+        return findPolynomial(combined) == 1
+    }
+
+    fun checkChecksum_bech32m(humanPart: String, values: ByteArray): Boolean {
+        val humanPartExpanded = expandHumanPart(humanPart)
+        val combined = ByteArray(humanPartExpanded.size + values.size)
+        humanPartExpanded.copyInto(combined)
+        values.copyInto(combined, destinationOffset = humanPartExpanded.size)
         return findPolynomial(combined) == BECH32M_CONST
     }
 
+    fun bech32_bech32m_verify_checksum(humanPart: String, values: ByteArray): Encoding? {
+        val humanPartExpanded = expandHumanPart(humanPart)
+        val combined = ByteArray(humanPartExpanded.size + values.size)
+        humanPartExpanded.copyInto(combined)
+        values.copyInto(combined, destinationOffset = humanPartExpanded.size)
+
+        val check = findPolynomial(combined)
+        if (check == 1){
+            return Encoding.BECH32
+        } else if (check == BECH32M_CONST){
+            return Encoding.BECH32M
+        }
+        else {
+            return null;
+        }
+
+    }
+
     fun getChecksum(humanPart: String, values: ByteArray): ByteArray {
+        val humanPartExpanded = expandHumanPart(humanPart)
+        val enc = ByteArray(humanPartExpanded.size + values.size + 6)
+        humanPartExpanded.copyInto(enc)
+        values.copyInto(enc, startIndex = 0, destinationOffset = humanPartExpanded.size)
+
+        val mod = findPolynomial(enc) xor 1
+        val ret = ByteArray(6)
+        for (i in 0..5) {
+            ret[i] = (mod.ushr(5 * (5 - i)) and 31).toByte()
+        }
+        return ret
+    }
+
+    fun getChecksum_bech32m(humanPart: String, values: ByteArray): ByteArray {
         val humanPartExpanded = expandHumanPart(humanPart)
         val enc = ByteArray(humanPartExpanded.size + values.size + 6)
         humanPartExpanded.copyInto(enc)
@@ -49,4 +96,6 @@ object CheckSum {
         byteArray[humanPartLength] = 0
         return byteArray
     }
+
+
 }
