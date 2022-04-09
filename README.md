@@ -13,12 +13,12 @@
 * [x] Decoding test vectors functionality
 * [x] 3-4 pages of report
 # Phase 3 *deadline 11.4 16:00
-* [ ] Finalise the implementation 
+* [x] [Mikita]: Finalise the implementation 
 * [x] [Mikita]: User interface in command line
-* [ ] [Illia]: Fix bech32m encryption method
-* [ ] [Name]: Prepare fuzzer for program
-* [ ] [Name]: Run dynamic analyzer
-* [ ] [Name]: Run static analyzer's
+* [x] [Ilya]: Fix bech32m encryption method
+* [ ] [Kamil]: Prepare fuzzer for program
+* [ ] [Kamil]: Run dynamic analyzer
+* [ ] [Kamil]: Run static analyzer's
 * [ ] [Name]: Release the final binary build with a digital signature (GPG)
 * [ ] [Name]: Prepare presentation 
 # Phase 4 *deadline 9.5 16:00
