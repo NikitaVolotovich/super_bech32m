@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.Test
 
-object ToolsTests {
+internal class ToolsTests {
 
     @Test
     fun conversionTests(){
@@ -23,5 +23,6 @@ object ToolsTests {
         println(binToBech)
         val b64ToBech = BechTools.convertStringToBechData(inB64, BechTools.BASE64_FORMAT)
         println(b64ToBech)
+        assert(true)
     }
 }
