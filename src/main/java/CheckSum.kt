@@ -7,7 +7,7 @@ enum class Encoding (val code: Int){
 
 object CheckSum {
 
-    val BECH32M_CONST = 0x2bc830a3
+    private const val BECH32M_CONST = 0x2bc830a3
 
     fun checkChecksum(humanPart: String, values: ByteArray): Boolean {
         val humanPartExpanded = expandHumanPart(humanPart)
