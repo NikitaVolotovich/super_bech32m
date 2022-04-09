@@ -4,15 +4,16 @@
 # Phase 1 *deadline 21.2 16:00
 * **Team:** Mikita Valatovich; Illia Kostenko, Kamil Fňukal.
 * **Language:** Kotlin.
-* ✔ Put test vectors into empty project
-* ✔ Write message to Antonin Dufka
+* [x] Put test vectors into empty project
+* [x] Write message to Antonin Dufka
 # Phase 2 *deadline 14.3 16:00
-* ✔ Configure GitHub automated tests
-* ✔✔ Signing our commits (https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits)
-* ✔ Encoding test vectors functionality
-* ✔ Decoding test vectors functionality
-* ✔ 3-4 pages of report
+* [x] Configure GitHub automated tests
+* [x] Signing our commits
+* [x] Encoding test vectors functionality
+* [x] Decoding test vectors functionality
+* [x] 3-4 pages of report
 # Phase 3 *deadline 11.4 16:00
+<<<<<<< HEAD
 * ▢ Finalise the implementation 
 * ▢ [Mikita]: User interface in command line
 * ▢ [Name]: Fix bech32m encryption method
@@ -21,8 +22,16 @@
 * ▢ [Kamil]: Run static analyzer's
 * ▢ [Name]: Release the final binary build with a digital signature (GPG)
 * ▢ [Name]: Presentation
+=======
+* [ ] Finalise the implementation 
+* [x] [Mikita]: User interface in command line
+* [ ] [Name]: Fix bech32m encryption method
+* [ ] [Name]: Prepare fuzzer for program
+* [ ] [Name]: Run dynamic analyzer
+* [ ] [Name]: Run static analyzer's
+* [ ] [Name]: Release the final binary build with a digital signature (GPG)
+* [ ] [Name]: Prepare presentation 
+>>>>>>> develop
 # Phase 4 *deadline 9.5 16:00
-* ▢ Another team review
+* [ ] Another team review
 
-# P.s.
-✔▢

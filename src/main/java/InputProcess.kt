@@ -1,126 +1,277 @@
-object InputProcess {
-    private var isToEncrypt: Boolean = false
-    private var isToDecrypt: Boolean = false
-//    private var isPrintIntoFile: Boolean = false
-//    private var isReadFromFile: Boolean = false
-    private var isInputCorrect: Boolean = true
+import BechTools.BASE64_FORMAT
+import BechTools.BINARY_FORMAT
+import BechTools.DEC_FORMAT
+import BechTools.HEX_FORMAT
+import BechTools.NO_FORMAT
 
+// Written by Mikita 7.4.2022
+/*
+When function returned 'false' – it means FAIL
+'true' – successful result
+ */
+
+object InputProcess {
+
+    private var isToEncode: Boolean = false
+    private var isToDecode: Boolean = false
+    private var isPrintIntoFile: Boolean = false
 
     private var inputString: String = ""
-    private var inputFilePath: String = ""
     private var outputFilePath: String = ""
 
+    private var inputFormat: Int = NO_FORMAT // Default: DEC for encode // BASE64 for decode
+    private var outputFormat: Int = NO_FORMAT //Default: BASE64 for encode // DEC for decode
 
+    private var inputArray: MutableList<String> = ArrayList()
+    private var outputArray: MutableList<String> = ArrayList()
 
-    fun inputArgumentsExecutor(args: Array<String>) { // Mikita
-        inputArgumentsInspector(args)
-        if(isToEncrypt) {
-            val bechData = BechTools.parseDecStringToBechData(inputString)
+    fun inputArgumentsExecutor(args: ArrayList<String>): Boolean {
+        if (!inputArgumentsInspector(args)) return false
+
+        if (isToEncode) {
+            val bechData = BechTools.convertStringToBechData(inputString, inputFormat)
             val encrypted = Encode.encode(bechData.humanReadablePart, bechData.data)
-            if(outputFilePath.isNotEmpty())
+            if (isPrintIntoFile)
                 FileInspector.writeStringIntoFile(outputFilePath, encrypted)
             else
                 println(encrypted)
-        } else if (isToDecrypt) {
-            val decrypted = Decode.decodingString(inputString)
-            if(outputFilePath.isNotEmpty())
-                FileInspector.writeStringIntoFile(outputFilePath, decrypted.toString())
+        } else if (isToDecode) {
+            val decoded = Decode.decodingString(inputString)
+            if (isPrintIntoFile)
+                FileInspector.writeStringIntoFile(
+                    outputFilePath,
+                    BechTools.convertBechDataToString(decoded, outputFormat)
+                )
             else
-                println(decrypted)
+                println(BechTools.convertBechDataToString(decoded, outputFormat))
+        }
+        return true
+    }
+
+    private fun inputArgumentsInspector(args: ArrayList<String>): Boolean { //Mikita
+        if (args.isEmpty()) {
+            UserCommunicator.printPrompt("You didn't provide any arguments :(")
+            return false
         }
 
+        if (isArgIsHelp(args)) return false // if user ask for a help -> stop processing
+
+        divideArray(args) // divide array into input part and output part
+
+        if (!inputArrayInspector(inputArray)) return false
+        if (!outputArrayInspector(outputArray)) return false
+
+        return true
     }
-    private fun inputArgumentsInspector(args: Array<String>) { //Mikita
-        if(args.isEmpty()){
-            printPrompt("Please, write any arguments.")
-            isInputCorrect = false
+
+    private fun divideArray(args: ArrayList<String>) {
+        inputArray = ArrayList()
+        outputArray = ArrayList()
+        var switch = false
+        args.forEachIndexed { _, value ->
+            if (value == "-o")
+                switch = true
+            if (!switch)
+                inputArray.add(value)
+            else
+                outputArray.add(value)
         }
-    
+    }
+
+    private fun inputArrayInspector(args: MutableList<String>): Boolean {
+        var isOperationSet = false
+        var isFormatSet = false
+        var isFileOutputSet = false
+        var isStringSet = false
         args.forEachIndexed { _, value ->
             when (value) {
-                "-e"-> {
-                    encryptionInspector(args)
-                    return@forEachIndexed
-                }
-                "-d" -> {
-                    decryptionInspector(args)
-                    return@forEachIndexed
-                }
-            }
-        }
-    }
-
-    private fun encryptionInspector(args: Array<String>) {
-        isToEncrypt = true
-        args.forEachIndexed { index, value ->
-            when (value) {
                 "-e" -> {
-                    if(index + 1 < args.size && args[index+1] != "-f") {
-                        inputString = args[index + 1]
-                        println("String for encryption: $inputString")
+                    if (!isOperationSet) {
+                        isOperationSet = true
+                        isToEncode = true
                     } else {
-                        isInputCorrect = false
+                        println("Wrong input part of args: $value")
+                        return false
                     }
                 }
-                "-f" -> {
-                    if(index + 1 < args.size) {
-                        inputFilePath = args[index + 1]
-                        println("Input filepath for encryption: $inputFilePath")
-                    } else {
-                        isInputCorrect = false
-                    }
-                }
-                "-o" -> {
-                    if(index + 1 < args.size) {
-                        outputFilePath = args[index + 1]
-                        println("Output filepath for encryption: $outputFilePath")
-                    } else {
-                        println("Input is incorrect. Filepath for output file was not found.")
-                        isInputCorrect = false
-                    }
-                }
-            }
-        }
-    }
-
-    private fun decryptionInspector(args: Array<String>) {
-        isToDecrypt = true
-        args.forEachIndexed { index, value ->
-            when (value) {
                 "-d" -> {
-                    if(index + 1 < args.size && args[index+1] != "-f") {
-                        inputString = args[index + 1]
-                        println("String for decryption: $inputString")
+                    if (!isOperationSet) {
+                        isOperationSet = true
+                        isToDecode = true
+                    } else {
+                        println("Wrong input part of args: $value")
+                        return false
                     }
                 }
                 "-f" -> {
-                    if(index + 1 < args.size) {
-                        inputFilePath = args[index + 1]
-                        println("Input filepath for decryption: $inputFilePath")
+                    if (!isFileOutputSet) {
+                        isFileOutputSet = true
+                    } else {
+                        println("Wrong input part of args: $value")
+                        return false
                     }
                 }
-                "-o" -> {
-                    if(index + 1 < args.size) {
-                        outputFilePath = args[index + 1]
-                        println("Output filepath for decryption: $outputFilePath")
+                "-hex" -> {
+                    if (!isFormatSet) {
+                        isFormatSet = true
+                        inputFormat = HEX_FORMAT
+                        Logger.write("Input format hex defined")
+                    } else {
+                        println("Wrong input part of args: $value")
+                        return false
+                    }
+                }
+                "-base64" -> {
+                    if (!isFormatSet) {
+                        isFormatSet = true
+                        inputFormat = BASE64_FORMAT
+                        Logger.write("Input format base64 defined")
+                    } else {
+                        println("Wrong input part of args: $value")
+                        return false
+                    }
+                }
+                "-dec" -> {
+                    if (!isFormatSet) {
+                        isFormatSet = true
+                        inputFormat = DEC_FORMAT
+                        Logger.write("Input format dec defined")
+                    } else {
+                        println("Wrong input part of args: $value")
+                        return false
+                    }
+                }
+                "-bin" -> {
+                    if (!isFormatSet) {
+                        isFormatSet = true
+                        inputFormat = BINARY_FORMAT
+                        Logger.write("Input format bin defined")
+                    } else {
+                        println("Wrong input part of args: $value")
+                        return false
+                    }
+                }
+                else -> {
+                    if (value[0] != '-' && !isStringSet) {
+                        isStringSet = true
+                        inputString = value
+                        Logger.write("Input string defined")
+                    } else {
+                        println("Wrong input part of args: $value")
+                        return false
                     }
                 }
             }
         }
+        if (!isOperationSet || !isStringSet)
+            return false
+
+        if (!isFormatSet) {
+            if (isToEncode)
+                inputFormat = DEC_FORMAT
+            else if (isToDecode)
+                inputFormat = BASE64_FORMAT
+        }
+
+        if (isFileOutputSet) {
+            inputString = FileInspector.readStringFromFile(inputString)
+            if(inputString.isEmpty()) {
+                println("Error: Input from a file is empty.")
+                return false
+            }
+        }
+
+        if (inputString.isEmpty())
+            return false
+        return true
+    }
+
+    private fun outputArrayInspector(args: MutableList<String>): Boolean {
+        var isFormatSet = false
+        var isStringSet = false
+
+        if (args.isEmpty()) {
+            println("No arguments for output. Default settings will used.")
+            return true
+        }
+
+        args.forEachIndexed { _, value ->
+            when (value) {
+                "-hex" -> {
+                    if (!isFormatSet) {
+                        isFormatSet = true
+                        outputFormat = HEX_FORMAT
+                        Logger.write("Output format hex defined")
+                    } else {
+                        println("Wrong output part of args: $value")
+                        return false
+                    }
+                }
+                "-base64" -> {
+                    if (!isFormatSet) {
+                        isFormatSet = true
+                        outputFormat = BASE64_FORMAT
+                        Logger.write("Output format base64 defined")
+                    } else {
+                        println("Wrong output part of args: $value")
+                        return false
+                    }
+                }
+                "-dec" -> {
+                    if (!isFormatSet) {
+                        isFormatSet = true
+                        outputFormat = DEC_FORMAT
+                        Logger.write("Output format dec defined")
+                    } else {
+                        println("Wrong output part of args: $value")
+                        return false
+                    }
+                }
+                "-bin" -> {
+                    if (!isFormatSet) {
+                        isFormatSet = true
+                        outputFormat = BINARY_FORMAT
+                        Logger.write("Output format bin defined")
+                    } else {
+                        println("Wrong output part of args: $value")
+                        return false
+                    }
+                }
+                else -> {
+                    if (value[0] != '-' && !isStringSet) {
+                        isStringSet = true
+                        outputFilePath = value
+                        Logger.write("Output filepath string defined")
+                    } else if (value != "-o") {
+                        println("Wrong output part of args: $value")
+                        return false
+                    }
+                }
+            }
+        }
+
+        if (!isFormatSet) {
+            if (isToEncode)
+                outputFormat = BASE64_FORMAT
+            else if (isToDecode)
+                outputFormat = DEC_FORMAT
+        }
+        if (isStringSet) {
+            isPrintIntoFile = true
+        }
+        return true
     }
 
 
-    private fun printPrompt(errorString: String) {
-        println(errorString)
-        println("-e/-d str -> en/decrypt str and print it into terminal")
-        println("-e/-d str -o filepath-> en/decrypt str and  put it into file in filepath")
-        println("-e/-d -f filepath -> read filepath for each str in file and en/decrypt it and print into terminal")
-        println("-e/-d -f filepath1 -o filepath2 -> read filepath1 for each str in file and en/decrypt it and put it")
-        println("\tinto file in filepath2")
+    private fun isArgIsHelp(args: MutableList<String>): Boolean {
+        args.forEachIndexed { _, value ->
+            when (value) {
+                "-help" -> {
+                    UserCommunicator.printHelp()
+                    return true
+                }
+            }
+        }
+        return false
     }
-
-    private fun readNewInput() {
-        TODO("Not yet implemented")
-    }
-
 }

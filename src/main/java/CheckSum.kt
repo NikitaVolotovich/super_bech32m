@@ -1,10 +1,13 @@
 object CheckSum {
+
+    private const val BECH32M_CONST = 0x2bc830a3
+
     fun checkChecksum(humanPart: String, values: ByteArray): Boolean {
         val humanPartExpanded = expandHumanPart(humanPart)
         val combined = ByteArray(humanPartExpanded.size + values.size)
         humanPartExpanded.copyInto(combined)
         values.copyInto(combined, destinationOffset = humanPartExpanded.size)
-        return findPolynomial(combined) == 1
+        return findPolynomial(combined) == BECH32M_CONST
     }
 
     fun getChecksum(humanPart: String, values: ByteArray): ByteArray {
@@ -13,7 +16,7 @@ object CheckSum {
         humanPartExpanded.copyInto(enc)
         values.copyInto(enc, startIndex = 0, destinationOffset = humanPartExpanded.size)
 
-        val mod = findPolynomial(enc) xor 1
+        val mod = findPolynomial(enc) xor BECH32M_CONST
         val ret = ByteArray(6)
         for (i in 0..5) {
             ret[i] = (mod.ushr(5 * (5 - i)) and 31).toByte()
