@@ -47,18 +47,9 @@ object MainTests {
     }
 
     private val VALID_INPUTS = arrayOf(
-        "4ef47f6eb681d5d9fa2f7e16336cd629303c635e8da51e425b76088be9c8744c",
-        "514a33f1d46179b89e1fea7bbb07b682ab14083a276979f91038369d1a8d689b",
-        "bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq",
-        "bc1qc7slrfxkknqcq2jevvvkdgvrt8080852dfjewde450xdlk4ugp7szw5tk9",
-        "bc1qc7slrfxkknqcq2jevvvkdgvrt8080852dfjewde450xdlk4ugp7szw5tk9",
-        "A12UEL5L",
-        "a12uel5l",
-        "an83characterlonghumanreadablepartthatcontainsthenumber1andtheexcludedcharactersbio1tt5tgs",
-        "abcdef1qpzry9x8gf2tvdw0s3jn54khce6mua7lmqqqxw",
-        "11qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqc8247j",
-        "split1checkupstagehandshakeupstreamerranterredcaperred2y9e3w",
-        "?1ezyfcl"
+        "an83characterlonghumanreadablepartthatcontainsthetheexcludedcharactersbioandnumber11sg7hg6",
+        "abcdef1l7aum6echk45nj3s0wdvt2fg8x9yrzpqzd3ryx",
+        "split1checkupstagehandshakeupstreamerranterredcaperredlc445v"
     )
 
     private val NOT_VALID_INPUTS = arrayOf(

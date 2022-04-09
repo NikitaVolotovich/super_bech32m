@@ -5,7 +5,7 @@ internal object DecodeTest{
     @Test
     fun decodeInvalidCharacterNotInAlphabet() {
         try {
-            Decode.decodingString("A12OUEL5X")
+            Decode.decodingString("A1LQFN3A")
         } catch(e: Exception) {
             println("Test 'decodeInvalidCharacterNotInAlphabet': FAILED")
             println(e.message)
@@ -17,7 +17,7 @@ internal object DecodeTest{
     @Test
     fun decodeInvalidCharacterUpperLowerMix() {
         try {
-            Decode.decodingString("A12UeL5X")
+            Decode.decodingString("a1lqfn3a")
         } catch(e: Exception) {
             println("Test 'decodeInvalidCharacterUpperLowerMix': FAILED")
             println(e.message)
@@ -29,7 +29,7 @@ internal object DecodeTest{
     @Test
     fun decodeInvalidNetwork() {
         try {
-            Decode.decodingString("A12UEL5X")
+            Decode.decodingString("A1LQFN3A")
         } catch(e: Exception) {
             println("Test 'decodeInvalidNetwork': FAILED")
             println(e.message)
@@ -41,7 +41,7 @@ internal object DecodeTest{
     @Test
     fun decodeInvalidHumanPart() {
         try {
-            Decode.decodingString("1pzry9x0s0muk")
+            Decode.decodingString("a1lqfn3a")
         } catch(e: Exception) {
             println("Test 'decodeInvalidHumanPart': FAILED")
             println(e.message)
