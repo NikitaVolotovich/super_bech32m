@@ -15,7 +15,7 @@
 # Phase 3 *deadline 11.4 16:00
 * [ ] Finalise the implementation 
 * [x] [Mikita]: User interface in command line
-* [ ] [Name]: Fix bech32m encryption method
+* [ ] [Illia]: Fix bech32m encryption method
 * [ ] [Name]: Prepare fuzzer for program
 * [ ] [Name]: Run dynamic analyzer
 * [ ] [Name]: Run static analyzer's

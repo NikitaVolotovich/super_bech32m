@@ -2,7 +2,7 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import java.util.*
 
-object MainTests {
+internal class MainTests {
     @Test
     fun valid() {
         for (valid in VALID_INPUTS) {

@@ -1,52 +1,52 @@
 import Decode
 import org.junit.jupiter.api.Test
+import kotlin.test.assertFailsWith
+import kotlin.test.assertNotNull
 
-internal object DecodeTest{
+internal class DecodeTest{
     @Test
     fun decodeInvalidCharacterNotInAlphabet() {
-        try {
-            Decode.decodingString("A1LQFN3A")
-        } catch(e: Exception) {
-            println("Test 'decodeInvalidCharacterNotInAlphabet': FAILED")
-            println(e.message)
-            return
-        }
-        println("Test 'decodeInvalidCharacterNotInAlphabet': SUCCESS")
+        assertFailsWith<Exception>(
+            message = "No exception found : FAILED",
+            block= {
+                Decode.decodingString("y1b0jsk6g") //Invalid data character
+            }
+        )
     }
 
     @Test
     fun decodeInvalidCharacterUpperLowerMix() {
-        try {
-            Decode.decodingString("a1lqfn3a")
-        } catch(e: Exception) {
-            println("Test 'decodeInvalidCharacterUpperLowerMix': FAILED")
-            println(e.message)
-            return
-        }
-        println("Test 'decodeInvalidCharacterUpperLowerMix': SUCCESS")
+        assertFailsWith<Exception>(
+            message = "No exception found : FAILED",
+            block = {
+                Decode.decodingString("A1LqFN3a") // Mixed case
+            })
     }
 
     @Test
     fun decodeInvalidNetwork() {
-        try {
-            Decode.decodingString("A1LQFN3A")
-        } catch(e: Exception) {
-            println("Test 'decodeInvalidNetwork': FAILED")
-            println(e.message)
-            return
-        }
-        println("Test 'decodeInvalidNetwork': SUCCESS")
+        assertFailsWith<Exception>(
+            message = "No exception found : FAILED",
+            block = {
+                Decode.decodingString("in1muywd") // inv. network
+            })
     }
 
     @Test
     fun decodeInvalidHumanPart() {
-        try {
-            Decode.decodingString("a1lqfn3a")
-        } catch(e: Exception) {
-            println("Test 'decodeInvalidHumanPart': FAILED")
-            println(e.message)
-            return
-        }
-        println("Test 'decodeInvalidHumanPart': SUCCESS")
+        assertFailsWith<Exception>(
+            message = "No exception found : FAILED",
+            block = {
+                Decode.decodingString("0x801vctc34") // inv. human part
+            })
+    }
+
+    @Test
+    fun decodeEmptyHumanPart() {
+        assertFailsWith<Exception>(
+            message = "No exception found : FAILED",
+            block = {
+                Decode.decodingString("1vctc34") // empty human part
+            })
     }
 }
