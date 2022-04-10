@@ -1,0 +1,144 @@
+22.3-96 0.002: Log file: C:\Users\kamil\.yjp\log\All in super_bech32m-19904.log
+22.3-96 0.002: Command line:
+  C:\Users\kamil\.jdks\corretto-11.0.14.1\bin\java.exe
+  -ea
+  -Didea.test.cyclic.buffer.size=1048576
+  -agentpath:C:\ProgramData\YourKit\2022.3.96.A283D181\64\yjpagent.dll=sampling,_ide_project_name=super_bech32m3,sessionname=YJPQUOTED416c6c20696e2073757065725f6265636833326d,profiler_dir=YJPQUOTED443a5c50726f6772616d2046696c65735c596f75724b6974204a6176612050726f66696c657220323032322e332d623936,ideport=54988,onexit=snapshot
+  -javaagent:D:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.3.2\lib\idea_rt.jar=55051:D:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.3.2\bin
+  -Dfile.encoding=UTF-8
+  -classpath
+  C:\Users\kamil\.m2\repository\org\junit\platform\junit-platform-launcher\1.8.2\junit-platform-launcher-1.8.2.jar;C:\Users\kamil\.m2\repository\org\junit\platform\junit-platform-engine\1.8.2\junit-platform-engine-1.8.2.jar;C:\Users\kamil\.m2\repository\org\junit\vintage\junit-vintage-engine\5.8.2\junit-vintage-engine-5.8.2.jar;D:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.3.2\lib\idea_rt.jar;D:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.3.2\plugins\junit\lib\junit5-rt.jar;D:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.3.2\plugins\junit\lib\junit-rt.jar;C:\Users\kamil\IdeaProjects\super_bech32m3\target\test-classes;C:\Users\kamil\IdeaProjects\super_bech32m3\target\classes;C:\Users\kamil\.m2\repository\org\jetbrains\kotlin\kotlin-test-junit5\1.6.10\kotlin-test-junit5-1.6.10.jar;C:\Users\kamil\.m2\repository\org\jetbrains\kotlin\kotlin-test\1.6.10\kotlin-test-1.6.10.jar;C:\Users\kamil\.m2\repository\org\assertj\assertj-core\3.12.2\assertj-core-3.12.2.jar;C:\Users\kamil\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.2\junit-jupiter-api-5.8.2.jar;C:\Users\kamil\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\kamil\.m2\repository\org\junit\platform\junit-platform-commons\1.8.2\junit-platform-commons-1.8.2.jar;C:\Users\kamil\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\kamil\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.8.0\junit-jupiter-engine-5.8.0.jar;C:\Users\kamil\.m2\repository\org\junit\platform\junit-platform-engine\1.8.0\junit-platform-engine-1.8.0.jar;C:\Users\kamil\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-jdk8\1.5.10\kotlin-stdlib-jdk8-1.5.10.jar;C:\Users\kamil\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib\1.5.10\kotlin-stdlib-1.5.10.jar;C:\Users\kamil\.m2\repository\org\jetbrains\annotations\13.0\annotations-13.0.jar;C:\Users\kamil\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-common\1.5.10\kotlin-stdlib-common-1.5.10.jar;C:\Users\kamil\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-jdk7\1.5.10\kotlin-stdlib-jdk7-1.5.10.jar;C:\Users\kamil\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\kamil\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar
+  com.intellij.rt.junit.JUnitStarter
+  -ideVersion5
+  -junit5
+  @w@C:\Users\kamil\AppData\Local\Temp\idea_working_dirs_junit.tmp
+  @C:\Users\kamil\AppData\Local\Temp\idea_junit.tmp
+  -socket55050
+22.3-96 0.002: Executable: C:\Users\kamil\.jdks\corretto-11.0.14.1\bin\java.exe
+22.3-96 0.002: Windows 10; version 10.0.19041; win64; 64-bit process
+22.3-96 0.002: hid: 160225496VZZ870W768V2ZYV88V43WZ639 64-bit machine
+22.3-96 0.002: RAM: 16344 MB
+22.3-96 0.002: Today is 20220410
+22.3-96 0.002: full_build_stamp: 2022.3.96 202203251357
+22.3-96 0.002: Agent library path: C:\ProgramData\YourKit\2022.3.96.A283D181\64\yjpagent.dll
+22.3-96 0.002: getTimeNsInfo: "PerformanceFrequency=10000000"
+22.3-96 0.002: Agent_OnLoad: orig_options=sampling,_ide_project_name=super_bech32m3,sessionname=YJPQUOTED416c6c20696e2073757065725f6265636833326d,profiler_dir=YJPQUOTED443a5c50726f6772616d2046696c65735c596f75724b6974204a6176612050726f66696c657220323032322e332d623936,ideport=54988,onexit=snapshot
+  full_options=sampling,_ide_project_name=super_bech32m3,sessionname=YJPQUOTED416c6c20696e2073757065725f6265636833326d,profiler_dir=YJPQUOTED443a5c50726f6772616d2046696c65735c596f75724b6974204a6176612050726f66696c657220323032322e332d623936,ideport=54988,onexit=snapshot
+22.3-96 0.003: jvmtiVersion: 300B0000
+22.3-96 0.003: phase: 1
+22.3-96 0.003: vendor: Amazon.com Inc.
+22.3-96 0.003: version: 11.0.14.1+10-LTS
+22.3-96 0.003: specVersion: 11
+22.3-96 0.003: info: mixed mode, sharing
+22.3-96 0.003: heap_sampling: capability is available
+22.3-96 0.003: asynchronous sampling: unsupported on win64
+22.3-96 0.003: inside Kubernetes: 0
+22.3-96 0.003: session GUID: 85488678647181
+22.3-96 0.004: line_method: 1
+22.3-96 0.004: heap_sampling: will be used instead of BCI
+22.3-96 0.010: Reusing existing jar file: C:\Users\kamil\AppData\Local\Temp\yjp202203251357.jar
+22.3-96 0.010: JVMTI 300B0000; 11.0.14.1+10-LTS; Amazon.com Inc.; mixed mode, sharing; Java version: 11
+22.3-96 0.229: Successfully registered probes: 28
+  Registered: .AgentLoadingSupport
+  Registered: .AsyncChannels
+  Registered: .AwtEvents
+  Registered: .Cassandra
+  Registered: .CassandraLW
+  Registered: .Databases
+  Registered: .DatabasesLW
+  Registered: .DirectoryStreams
+  Registered: .Files
+  Registered: .FilesLW
+  Registered: .HBase
+  Registered: .HBaseLW
+  Registered: .JNDI
+  Registered: .JPA_DataNucleus
+  Registered: .JPA_EclipseLink
+  Registered: .JPA_Hibernate
+  Registered: .JPA_OpenJPA
+  Registered: .JUnitTests
+  Registered: .MongoDB
+  Registered: .MongoDBLW
+  Registered: .Processes
+  Registered: .Servlets
+  Registered: .ServletsLW
+  Registered: .Sockets
+  Registered: .SocketsLW
+  Registered: .Sync
+  Registered: .TestNg
+  Registered: .Threads
+22.3-96 0.357: agentStart: 1
+22.3-96 0.357: agentStart: 2
+22.3-96 0.357: agentStart: OK
+22.3-96 0.358: vmInit: 1
+22.3-96 0.365: vmInit: 2
+22.3-96 0.365: agentInit: 1
+22.3-96 0.370: AddModuleExports returned 0:JVMTI_ERROR_NONE
+22.3-96 0.373: agentInit: Core loaded
+22.3-96 0.379: setTriggers:
+
+22.3-96 0.379: setTriggers: to unregister: 0
+22.3-96 0.379: setTriggers: method listeners to register: 0
+22.3-96 0.379: setTriggers: OK
+22.3-96 0.379: ourUnsafe: true
+22.3-96 0.400: agentInit: Core.init() called
+22.3-96 0.401: Retransform early class: java/io/FileInputStream
+22.3-96 0.401: [ssl-config] generating SSL certificate...
+22.3-96 0.401: [ssl-config] OpenSSL 1.1.1n  15 Mar 2022
+22.3-96 0.405: Retransform early class: java/io/FileOutputStream
+22.3-96 0.408: Retransform early class: java/lang/Thread
+22.3-96 0.418: agentInit: OK
+22.3-96 0.418: vmInit: 3
+22.3-96 0.418: onStartProfiling: entering...
+22.3-96 0.418: onStartProfiling: will start CPU sampling...
+22.3-96 0.418: starting sampling: synchronous
+22.3-96 0.418: SamplingSettings: time=cpu sampling_period_ms=20 cpu_threshold_ms=10
+22.3-96 0.418: Events from Auto probes cleared:
+
+22.3-96 0.418: SamplingSettings: time=cpu sampling_period_ms=20 cpu_threshold_ms=10
+22.3-96 0.450: retransformProbes: loaded classes: 813 probeClassNames: 122
+22.3-96 0.451: Probe classes to retransform: 0
+22.3-96 0.451: CPU sampling started: time=cpu
+sampling_period_ms=20
+cpu_threshold_ms=10
+
+22.3-96 0.451: onStartProfiling: done
+22.3-96 0.451: vmInit: OK
+22.3-96 0.458: [ssl-config] generating SSL certificate done: ctx 2, big 0, key 53, serial 0, cert 0, sign 2, use 0
+22.3-96 0.458: [server] listening; port=10001; ip=127.0.0.1; url=https://127.0.0.1:10001
+22.3-96 0.459: [shmem] get size result=1, size=106500
+22.3-96 0.460: [shmem] mapped address=0000020807580000, mapped size=106500, area size=106500
+22.3-96 0.477: Launching YourKit Java Profiler UI: D:\Program Files\YourKit Java Profiler 2022.3-b96\bin\profiler.exe
+22.3-96 0.724: tracing=off: large method: 2431 java.util.regex.CharPredicates forProperty(java.lang.String)
+22.3-96 0.854: tracing=off: large method: 6278 sun.text.resources.cldr.FormatData getContents()
+22.3-96 0.863: tracing=off: large method: 6316 sun.text.resources.cldr.ext.FormatData_cs getContents()
+22.3-96 0.923: SP: pin java.lang.NoSuchFieldException
+22.3-96 0.948: SP: pin java.lang.NoSuchMethodException
+22.3-96 1.116: [m: 390 83] total classes: processed=1000 instrumented=864 361ms
+22.3-96 1.210: GcPauseCounter: installed to G1 Young Generation
+22.3-96 1.210: GcPauseCounter: installed to G1 Old Generation
+22.3-96 1.214: tracing=off: large method: 15067 sun.util.resources.cldr.TimeZoneNames_en getContents()
+22.3-96 1.218: tracing=off: large method: 18367 sun.util.resources.TimeZoneNames getContents()
+22.3-96 1.224: GC bean name: [1] G1 Young Generation
+22.3-96 1.224: GC bean name: [2] G1 Old Generation
+22.3-96 1.224: processorCount=8
+22.3-96 1.273: SP: pin sun.nio.fs.WindowsException
+22.3-96 1.425: [http] 127.0.0.1 GET "/yjp/ws/api/v1" - - upgrade
+22.3-96 2.447: tracing=off: large method: 2683 java.lang.CharacterData00 toLowerCase(int)
+22.3-96 2.447: tracing=off: large method: 2738 java.lang.CharacterData00 toUpperCase(int)
+22.3-96 2.447: tracing=off: large method: 2338 java.lang.CharacterData00 toUpperCaseEx(int)
+22.3-96 2.597: SP: pin java.lang.Exception
+22.3-96 2.671: SP: pin java.lang.ClassNotFoundException
+22.3-96 2.775: vmDeath: 1
+22.3-96 2.775: vmDeath: 2
+22.3-96 2.776: [server] stopped
+22.3-96 2.776: WebServer thread finished
+22.3-96 2.776: vmDeath: 3
+22.3-96 2.776: vmDeath: on-exit performance snapshot will be captured
+22.3-96 2.862: [m: 418 134] WSN: starting C:\Users\kamil\Snapshots\All in super_bech32m-2022-04-10-shutdown(1).snapshot
+22.3-96 2.874: [m: 419 135] WSN: tables written
+22.3-96 2.888: SP: gc #0 8 ms=14 sz=14945 p=5 t=166
+22.3-96 2.888: [m: 418 134] WSN: done
+22.3-96 2.888: Snapshot captured: C:\Users\kamil\Snapshots\All in super_bech32m-2022-04-10-shutdown(1).snapshot
+22.3-96 2.888: vmDeath: 4
+22.3-96 2.888: vmDeath: OK
