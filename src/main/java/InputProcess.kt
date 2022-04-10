@@ -26,6 +26,7 @@ object InputProcess {
     private var outputArray: MutableList<String> = ArrayList()
 
     fun inputArgumentsExecutor(args: ArrayList<String>): Boolean {
+        if(args.size == 1) return false
         if (!inputArgumentsInspector(args)) return false
 
         if (isToEncode) {

@@ -15,12 +15,12 @@
 # Phase 3 *deadline 11.4 16:00
 * [x] [Mikita]: Finalise the implementation 
 * [x] [Mikita]: User interface in command line
-* [x] [Ilya]: Fix bech32m encryption method
-* [ ] [Kamil]: Prepare fuzzer for program
-* [ ] [Kamil]: Run dynamic analyzer
-* [ ] [Kamil]: Run static analyzer's
-* [ ] [Name]: Release the final binary build with a digital signature (GPG)
-* [ ] [Name]: Prepare presentation 
+* [x] [Illia]: Fix bech32m encryption method
+* [x] [Kamil]: Prepare fuzzer for program
+* [x] [Kamil]: Run dynamic analyzer
+* [x] [Kamil]: Run static analyzer's
+* [x] [Illia]: Release the final binary build with a digital signature (GPG)
+* [ ] [All]: Prepare presentation 
 # Phase 4 *deadline 9.5 16:00
 * [ ] Another team review
 
