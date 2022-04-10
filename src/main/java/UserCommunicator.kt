@@ -14,7 +14,7 @@ object UserCommunicator {
         println("-e bc[10,21,31,1,0,30] -> encode and print it into terminal")
         println("-e -hex bc[0a,15,1f,01,00,1e] -o output.txt -> encode and put it into file")
         println("-d bc124lpq7lf6enj -o -bin -> decode and print it in binary format")
-        println("-d -f -hex input.txt -o -base64 output.txt -> decode line from input.txt and put it into output.txt")
+        println("-d -f input.txt -o -base64 output.txt -> decode line from input.txt and put it into output.txt")
     }
 
     fun printHelp() {

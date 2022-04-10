@@ -25,3 +25,4 @@ fun main(args: Array<String>) {
         arguments.addAll(UserCommunicator.readNewInput())
     }
 }
+
