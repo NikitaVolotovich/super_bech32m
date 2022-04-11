@@ -20,7 +20,7 @@
 * [x] [Kamil]: Run dynamic analyzer
 * [x] [Kamil]: Run static analyzer's
 * [x] [Illia]: Release the final binary build with a digital signature (GPG)
-* [ ] [All]: Prepare presentation 
+* [x] [All]: Prepare presentation 
 # Phase 4 *deadline 9.5 16:00
 * [ ] Another team review
 
