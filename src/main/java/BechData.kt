@@ -41,12 +41,18 @@ object BechTools {
 
         when (outputFormat) {
             DEC_FORMAT -> {
+                if (!array.all { it.all { c -> c.isDigit() } })
+                    throw Exception("Input in decimal format should be in decimal format")
                 return (BechData(humanReadablePart, array.map { BigInteger(it.trim(), 10).toByte() }.toByteArray()))
             }
             HEX_FORMAT -> {
+                if (!array.all { it.all { c -> c.isDigit() || c in 'a' .. 'f' || c in 'A' .. 'F' } })
+                    throw Exception("Input in hexadecimal format should be in hexadecimal format")
                 return (BechData(humanReadablePart, array.map { BigInteger(it.trim(), 16).toByte() }.toByteArray()))
             }
             BINARY_FORMAT -> {
+                if (!array.all { it.all { c -> c == '0' || c == '1' } })
+                    throw Exception("Input in binary format should be in binary format")
                 return (BechData(humanReadablePart, array.map { BigInteger(it.trim(), 2).toByte() }.toByteArray()))
             }
             BASE64_FORMAT -> {

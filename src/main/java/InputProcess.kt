@@ -30,6 +30,10 @@ object InputProcess {
         if (!inputArgumentsInspector(args)) return false
 
         if (isToEncode) {
+            if (inputString.contains('[') || inputString.substringAfter('[').last() != ']') {
+                println("Input, with the exception of human readable part, should be enclosed in (square) brackets.")
+                return false
+            }
             val bechData = BechTools.convertStringToBechData(inputString, inputFormat)
             val encrypted = Encode.encode(bechData.humanReadablePart, bechData.data)
             if (isPrintIntoFile)
