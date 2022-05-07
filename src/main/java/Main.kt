@@ -19,10 +19,15 @@ fun main(args: Array<String>) {
 //    val encoded = Encode.encode(humanReadablePart = decoded.humanReadablePart, data = decoded.data)
 //    println(encoded)
 
-    while(true) {
-        if(InputProcess.inputArgumentsExecutor(arguments)) break
-        arguments = ArrayList()
-        arguments.addAll(UserCommunicator.readNewInput())
+    try {
+        while(true) {
+            if(InputProcess.inputArgumentsExecutor(arguments)) break
+            arguments = ArrayList()
+            arguments.addAll(UserCommunicator.readNewInput())
+        }
+    } catch (e: Exception) {
+        println("An exception occurred with the message: ${e.message}")
     }
+
 }
 
